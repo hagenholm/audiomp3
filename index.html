@@ -35,7 +35,7 @@
         // Link do avatar
         const avatarURL = "https://i.imgur.com/DFqNag1.jpg";
         // Cor da barra de progresso
-        const corBarraProgresso = "#25D366";
+        const corBarraProgresso = "#33B8EC";
         // Tipo de arquivo de audio
         const audioTipo = '.mp3';
 
@@ -75,10 +75,12 @@
         iconContainer.innerHTML = phoneIcon;
         iconContainer.appendChild(avatarImg);
 
+        track.appendChild(iconContainer);
+
         playPauseBtn.setAttribute("data-state", "pause");
         playPauseBtn.innerHTML = playPauseIcons;
         controls.appendChild(playPauseBtn);
-        track.append(controls, timeLine, iconContainer);        
+        track.append(controls, timeLine);        
 
         container.append(track);
 
@@ -105,7 +107,7 @@
 
         wavesurfer.on('ready', () => {
         setTimeout(() => {
-            /*if(!isMobile) */playPauseBtn.click()            
+            if(!isMobile) playPauseBtn.click()            
         }, 1000);
         });
         wavesurfer.on("finish", () => (playPauseBtn.dataset.state = "pause"));
