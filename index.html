@@ -13,7 +13,7 @@
 
     window.addEventListener('load', () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const audioUrl = urlParams.get('audioUrl'); // Obtiene la URL del parámetro 'audioUrl'
+        const audioUrl = urlParams.get('audio'); // Obtiene la URL del parámetro 'audioUrl'
         if(audioUrl) {
             createPlayer(document.body, audioUrl);
         }
