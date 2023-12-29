@@ -1,7 +1,7 @@
 
 
 <style>
-    .hero,.track{display:flex}*{margin:0;padding:0}.hero{width:100%;height:100vh;background:#a9a9a9;align-items:center;justify-content:center}.music{width:90%;max-width:900px;padding:30px;box-shadow:0 0 20px rgb(0,0,0,.2);background-color:#fff}.track{align-items:center;position:relative}.track::after{position:absolute;content:"";width:0;height:0;border-style:solid;border-width:0 10px 10px 0;border-color:transparent #fff transparent transparent;top:0;left:-10px}.track .controls{width:20px;margin-right:10px;cursor:pointer}.track .controls button{background:0 0;border:0;cursor:pointer}.track .controls button svg{display:none;pointer-events:none}.track .controls button[data-state=pause] svg.play,.track .controls button[data-state=play] svg.pause{display:block}.track .controls svg{fill:#a9a9a9}.track .timeline{flex:1;width:100%}.track .icon{position:relative;margin-left:10px; margin-right:15px;}.track .icon svg{position:absolute;bottom:0;right:-10px;pointer-events:none;user-select:none}.track .avatar{width:50px;height:50px;object-fit:cover;border-radius:50%}#waveform ::part(cursor){background-color:var(--progress-color,#be358a);width:15px;height:15px;border-radius:50%;top:50%;transform:translateY(-50%)}
+    .hero,.track{display:flex}*{margin:0;padding:0}.hero{width:100%;height:100vh;background:#a9a9a9;align-items:center;justify-content:center}.music{width:90%;max-width:900px;padding:30px;box-shadow:0 0 20px rgb(0,0,0,.2);background-color:#fff}.track{align-items:center;position:relative}.track::after{position:absolute;content:"";width:0;height:0;border-style:solid;border-width:0 10px 10px 0;border-color:transparent #fff transparent transparent;top:0;left:-10px}.track .controls{width:20px;margin-right:10px;cursor:pointer}.track .controls button{background:0 0;border:0;cursor:pointer}.track .controls button svg{display:none;pointer-events:none}.track .controls button[data-state=pause] svg.play,.track .controls button[data-state=play] svg.pause{display:block}.track .controls svg{fill:#a9a9a9}.track .timeline{flex:1;width:100%}.track .icon{position:relative;margin-left:15px;}.track .icon svg{position:absolute;bottom:0;left:-10px;pointer-events:none;user-select:none}.track .avatar{width:50px;height:50px;object-fit:cover;border-radius:50%}#waveform ::part(cursor){background-color:var(--progress-color,#be358a);width:15px;height:15px;border-radius:50%;top:50%;transform:translateY(-50%)}
 </style>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.0.5/wavesurfer.min.js"
@@ -35,9 +35,9 @@
         // Link do avatar
         const avatarURL = "https://i.imgur.com/DFqNag1.jpg";
         // Cor da barra de progresso
-        const corBarraProgresso = "#617264";
+        const corBarraProgresso = "#49D44F";
         // Tipo de arquivo de audio
-        const audioTipo = '.mp3';
+        // const audioTipo = '.mp3';
 
         document.body.style.setProperty('--progress-color', corBarraProgresso);
         
@@ -75,12 +75,12 @@
         iconContainer.innerHTML = phoneIcon;
         iconContainer.appendChild(avatarImg);
 
-        track.appendChild(iconContainer);
+        //track.appendChild(iconContainer);
 
         playPauseBtn.setAttribute("data-state", "pause");
         playPauseBtn.innerHTML = playPauseIcons;
         controls.appendChild(playPauseBtn);
-        track.append(controls, timeLine);        
+        track.append(controls, timeLine, iconContainer);        
 
         container.append(track);
 
