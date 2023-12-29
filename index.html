@@ -12,13 +12,22 @@
     const isMobile = detectMob();
 
     window.addEventListener('load', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const audioUrl = urlParams.get('audioUrl'); // Obtiene la URL del parámetro 'audioUrl'
+        if(audioUrl) {
+            createPlayer(document.body, audioUrl);
+        }
+    });
+    /*window.addEventListener('load', () => {
         const audioID = window.location.hash;
         if(audioID) {
         createPlayer(document.body, audioID.replace('#', ''));
         }
     })
+    */
 
-    function createPlayer(container, audioname) {
+    //function createPlayer(container, audioname) {
+    function createPlayer(container, audioUrl) {
         container.innerHTML = "";       
 
         // Link do avatar
@@ -72,13 +81,13 @@
         container.append(track);
 
         const wavesurfer = WaveSurfer.create({
-        container: timeLine,
-        waveColor: "#ddd",
-        progressColor: corBarraProgresso,
-        barWidth: 2,
-        cursorWidth: 15,
-        height: 25,
-        url: `audios/${audioname}${audioTipo}`,
+            container: timeLine,
+            waveColor: "#ddd",
+            progressColor: corBarraProgresso,
+            barWidth: 2,
+            cursorWidth: 15,
+            height: 25,
+            url: audioUrl,//`audios/${audioname}${audioTipo}`,
         });
 
         playPauseBtn.addEventListener("click", (e) => {
